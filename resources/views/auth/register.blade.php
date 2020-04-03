@@ -49,7 +49,7 @@
         <button type="submit" class="btn btn-social">{{ __('SIGN UP') }}</button>
     </form>
     <a href="{{ route('login') }}" class="login-action" title="login">
-        <p>Have an account?</p>
+        <p>{{ __('Have an account?') }}</p>
     </a>
 </div>
 <!--close form-box-->

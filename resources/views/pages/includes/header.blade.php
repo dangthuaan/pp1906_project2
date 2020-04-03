@@ -3,7 +3,7 @@
 <header class="header" id="site-header">
 
     <div class="page-title">
-        <h6>Newsfeed</h6>
+        <h6>{{ __('Newsfeed') }}</h6>
     </div>
 
     <div class="header-content-wrapper">
@@ -16,7 +16,7 @@
             </div>
         </form>
 
-        <a href="#" class="link-find-friend">Find Friends</a>
+        <a href="#" class="link-find-friend">{{ __('Find Friends') }}</a>
 
         <div class="control-block">
 
@@ -28,9 +28,9 @@
 
                 <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
-                        <h6 class="title">FRIEND REQUESTS</h6>
-                        <a href="#">Find Friends</a>
-                        <a href="#">Settings</a>
+                        <h6 class="title">{{ __('FRIEND REQUESTS') }}</h6>
+                        <a href="#">{{ __('Find Friends') }}</a>
+                        <a href="#">{{ __('Settings') }}</a>
                     </div>
 
                     <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -72,22 +72,22 @@
                         </ul>
                     </div>
 
-                    <a href="#" class="view-all bg-blue">View all</a>
+                    <a href="#" class="view-all bg-blue">{{ __('View all') }}</a>
                 </div>
             </div>
 
             <div class="control-icon more has-items">
                 <a href="#" title="Notifications">
-                    <img src="{{ asset('socialyte/svg-icons/top_bar/notify.svg') }}">
+                    <img src="{{ asset('socialyte/svg-icon{s/top_bar/notify.svg') }}">
                 </a>
 
                 <div class="label-avatar bg-primary">8</div>
 
                 <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
-                        <h6 class="title">Notifications</h6>
-                        <a href="#">Mark all as read</a>
-                        <a href="#">Settings</a>
+                        <h6 class="title">{{ __('Notifications') }}</h6>
+                        <a href="#">{{ __('Mark all as read') }}</a>
+                        <a href="#">{{ __('Settings') }}</a>
                     </div>
 
                     <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -125,7 +125,7 @@
                         </ul>
                     </div>
 
-                    <a href="#" class="view-all bg-primary">View All</a>
+                    <a href="#" class="view-all bg-primary">{{ __('View All') }}</a>
                 </div>
             </div>
 
