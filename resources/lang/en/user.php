@@ -2,5 +2,10 @@
 
 return [
     'error' => 'Something went wrong!',
-    'success' => 'Your language has been updated!',
+    'information' => [
+        'success' => 'Your information has been updated',
+    ],
+    'language' => [
+        'success' => 'Your language has been changed',
+    ],
 ];

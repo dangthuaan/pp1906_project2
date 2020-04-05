@@ -59,4 +59,24 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Models\Post');
     }
+
+    /**
+     * Scope if user is Male.
+     *
+     * @return Boolean
+     */
+    public function scopeIsMale()
+    {
+        return $this->gender == config('user.gender.male');
+    }
+
+    /**
+     * Scope if user is Female.
+     *
+     * @return Boolean
+     */
+    public function scopeIsFemale()
+    {
+        return $this->gender == config('user.gender.female');
+    }
 }

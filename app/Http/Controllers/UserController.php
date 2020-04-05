@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Services\UserService;
 use App\Http\Requests\UserRequest;
+use App\Models\User;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
@@ -17,7 +16,18 @@ class UserController extends Controller
     }
 
     /**
-     * Change Language in database.
+     * Show show user information settings.
+     *
+     * @return Response
+     */
+    public function showInformation()
+    {
+        $currentUser = auth()->user();
+        return view('pages.settings.personal.index', compact('currentUser'));
+    }
+
+    /**
+     * Show language changing page.
      *
      * @param  \Illuminate\Http\UserRequest  $request
      * @return \Illuminate\Http\Response
@@ -27,20 +37,48 @@ class UserController extends Controller
         return view('pages.settings.language.index');
     }
 
-    public function changeLanguage(UserRequest $request)
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\UserRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateInformation(UserRequest $request)
+    {
+        $currentUserId = auth()->id();
+        $data = $this->userService->getUserData($request);
+
+        $updateUser = $this->userService->updateUser($currentUserId, $data);
+
+        if ($updateUser) {
+            return back()->with('success', __('user.information.success'));
+        }
+
+        return back()->with('error', __('user.error'));
+    }
+
+    /**
+     * Change the language of website.
+     *
+     * @param  \Illuminate\Http\UserRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateLanguage(UserRequest $request)
     {
         $currentUserId = auth()->id();
         $data = $request->only(['language']);
-        $changLanguage = $this->userService->update($currentUserId, $data);
+
+        $changLanguage = $this->userService->updateUser($currentUserId, $data);
 
         if ($changLanguage) {
             $keyLanguage = array_search(
                 $data['language'],
-                config('setting.language')
+                config('user.language')
             );
             app()->setLocale($keyLanguage);
 
-            return back()->with('success', __('user.success'));
+            return back()->with('success', __('user.language.success'));
         }
 
         return back()->with('error', __('user.error'));

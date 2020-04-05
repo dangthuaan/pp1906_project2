@@ -42,18 +42,18 @@ Route::get('/profile/videos', function () {
     return view('pages.profile.videos.index');
 });
 
-Route::get('/settings', function () {
-    return view('pages.settings.personal.index');
-});
-
 Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
-    Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
-    Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
-});
 
-Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+    Route::get('/settings', 'UserController@showInformation')->name('user.showInformation');
+
+    Route::post('/settings/update', 'UserController@updateInformation')->name('user.updateInformation');
+
+    Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
+
+    Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
+});
 
 Route::get('/settings/password', function () {
     return view('pages.settings.password.index');
