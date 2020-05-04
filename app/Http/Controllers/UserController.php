@@ -7,6 +7,7 @@ use App\Http\Requests\PasswordRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {

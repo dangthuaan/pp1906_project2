@@ -16,7 +16,9 @@ class UserService
      */
     public function getUserData($request)
     {
-        $birthday = Carbon::createFromFormat('d/m/Y', $request->datetimepicker)->toDateString();
+        $formattedBirthday = Carbon::parse($request->datetimepicker)->format('d/m/Y');
+
+        $birthday = Carbon::createFromFormat('d/m/Y', $formattedBirthday)->toDateString();
 
         $request->merge(['birthday' => $birthday]);
 
