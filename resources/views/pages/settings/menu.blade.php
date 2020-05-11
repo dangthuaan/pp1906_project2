@@ -25,7 +25,7 @@
                                 <a href="{{ route('user.showInformation') }}">@lang('Personal Information')</a>
                             </li>
                             <li>
-                                <a href="">@lang('Change Password')</a>
+                                <a href="{{ route('user.showEditPassword') }}">@lang('Change Password')</a>
                             </li>
                             <li>
                                 <a href="{{ route('user.showLanguage') }}">@lang('Change Language')</a>
@@ -36,11 +36,11 @@
             </div>
 
             <div class="ui-block-title">
-                <a href="" class="h6 title">@lang('Notifications')</a>
+                <a href="{{ route('notifications.showAllNotification') }}" class="h6 title">@lang('Notifications')</a>
                 <a href="#" class="items-round-little bg-primary notification-count"></a>
             </div>
             <div class="ui-block-title">
-                <a href="" class="h6 title">@lang('Friend Requests')</a>
+                <a href="{{ route('friend.showAllNotification') }}" class="h6 title">@lang('Friend Requests')</a>
                 <a href="#" class="items-round-little bg-blue friends-notification-count"></a>
             </div>
         </div>
