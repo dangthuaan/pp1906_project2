@@ -13,14 +13,14 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
-                <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                <form method="POST" class="post-form-submit" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="author-thumb">
                         <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
                         <label class="control-label"> @lang('Share what you are thinking here...') </label>
-                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder=""></textarea>
+                        <textarea class="post-content form-control @error('content') is-invalid @enderror" name="content"></textarea>
 
                         @error('content')
                         <span class="invalid-feedback" role="alert">
@@ -34,9 +34,9 @@
                             <label for="upload-image" class="display-inline">
                                 <img src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
                             </label>
-                            <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" multiple>
+                            <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" accept="image/*" multiple>
                         </a>
-                        <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
+                        <button class="btn btn-primary btn-md-2 store-post"> @lang('Post Status') </button>
 
                         @error('image.*')
                         <span class="image-error" role="alert">

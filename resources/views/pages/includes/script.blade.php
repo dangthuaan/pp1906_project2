@@ -71,14 +71,18 @@
     }
 
     function errorEmptyContent() {
-        Swal.fire(
-            "@lang('Content ?')",
-            "@lang('Content can\'t be empty!')",
-            'question'
-        );
+        Swal.fire({
+            icon: 'question',
+            text: "@lang('Content can\'t be empty!')",
+        });
     }
 
-    var errorImageType = "@lang('Please select only images')";
+    function errorImages() {
+        Swal.fire({
+            icon: 'warning',
+            text: "@lang('Please select only images!')",
+        });
+    }
 </script>
 
 @yield('script')
